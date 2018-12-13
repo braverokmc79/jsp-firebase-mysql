@@ -1,0 +1,63 @@
+
+
+table{
+ width: 1200px;
+}
+th, td{
+  width:100px;
+  height:50px;
+  text-align: center;
+}
+
+.btn {
+			background-color: orange;
+			display: inline-block;
+			height: 15px;
+			width: 30px;
+			padding: 10px 10px;
+			margin: 10px;
+			border: none;
+			outline: none;
+			border-radius: 3px;
+			text-align: left;
+			text-decoration: none;
+			font-size: 13px;
+			cursor: pointer;
+			box-shadow: 1px 1px 1px #B0B0B0;
+			color:#fff;
+		}
+.btn:hover { background-color: #FF8C00; }
+.btn:active {
+	background-color: #FF8C00;
+	/* box-shadow: 1px 1px 1px rgba; */
+	/* transform: translateY(4px); */
+}
+.btn-danger{
+	background-color: red;
+}
+.btn-danger:hover{
+	background-color: #C71C22;
+}
+.btn-move{
+	width: 40px;
+	padding: 20px 20px;
+	background-color: #73A839;
+	text-align: center;
+	box-shadow: 2px 2px 2px #B0B0B0;
+}
+.btn-add{
+	width: 30px;
+	padding: 20px 20px;
+	background-color: #2FA4E7;
+	text-align: center;
+	box-shadow: 2px 2px 2px #B0B0B0;
+}
+
+.btn-welcome{
+	
+	width: 100px;
+	padding: 20px 20px;
+	background-color: #999999;
+	text-align: center;
+	box-shadow: 2px 2px 2px #000000;
+}

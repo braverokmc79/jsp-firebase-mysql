@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
+<mapper namespace="UserInfo">
+	<resultMap type="User" id="User">
+		<result column="id" property="id" />
+		<result column="name" property="name" />
+		<result column="sex" property="sex" />
+		<result column="email" property="email" />
+		<result column="fireBaseId" property="fireBaseId" />
+		<result column="pw" property="pw" />
+		<collection column="clsId"   property="cls" select="ClassesInfo.ById" />
+	</resultMap>
+	
+	
+	<select id="all" resultMap="User" parameterType="map">
+		<![CDATA[
+			select * from (select u.*, u.id as r from users u,classes c where u.clsid = c.id) as L where L.r <= #{num1} and L.r > #{num2}
+		]]>
+	</select>
+	<select id="count" resultType="int">
+		<![CDATA[
+			select count(*) from users
+		]]>
+	</select>
+	
+	
+	<!-- 데이터 삽입 -->
+   	<insert id="add" >	
+		<![CDATA[	
+	  insert into users values (null, #{name}, #{gender}, #{email}, #{clsId}, #{fireBaseId}, #{pw} )
+	  	]]>
+	</insert> 
+
+
+	<delete id="del">
+	 delete from users where id=#{id}
+	</delete>
+
+
+	<select id="ById" resultMap="User">
+	<![CDATA[
+	select * from (select u.*, u.id as r from users u,classes c where u.clsid = c.id) as L where id=#{id}
+		]]>
+	</select>
+
+	<update id="upd">
+	  <![CDATA[	 		
+		update users  SET		  
+		  name = #{name} 
+		  ,gender = #{gender} 
+		  ,email = #{email} 
+		  ,clsid = #{clsId} 
+		WHERE id = #{id}
+	  	]]>
+	</update>
+
+	
+	<select id="num1Max" resultType="int">
+	select max(id) from users
+	</select>
+	
+	<select id="num2Min" resultType="int">
+	select min(id) from users
+	</select>	
+	
+</mapper>
